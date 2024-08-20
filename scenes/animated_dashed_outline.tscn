@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx1oujf21akmh"]
+
+[ext_resource type="Shader" path="res://shaders/animated_dashed_outline.gdshader" id="1_4vwoh"]
+[ext_resource type="Texture2D" uid="uid://cewdmqjvrc71e" path="res://icon.svg" id="2_abtfy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12i64"]
+shader = ExtResource("1_4vwoh")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/diameter = 1.0
+shader_parameter/thickness = 0.02
+shader_parameter/frequency = 24.0
+shader_parameter/phase_speed = 2.0
+
+[node name="DashedOutline" type="Sprite2D"]
+material = SubResource("ShaderMaterial_12i64")
+texture = ExtResource("2_abtfy")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbske85nbmpiu"]
+
+[ext_resource type="Shader" path="res://shaders/simple_outline.gdshader" id="1_h0tfb"]
+[ext_resource type="Script" path="res://scripts/enemy_a.gd" id="1_ndb7h"]
+[ext_resource type="Texture2D" uid="uid://beil4018ruqte" path="res://assets/simple_space/PNG/Retina/ship_G.png" id="1_twpev"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6syy"]
+resource_local_to_scene = true
+shader = ExtResource("1_h0tfb")
+shader_parameter/line_color = Color(0.79185, 0.697995, 0.90841, 1)
+shader_parameter/tint_color = Color(0.345098, 0.321569, 0.407843, 1)
+shader_parameter/line_thickness = 2.5
+
+[node name="EnemyA" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_ndb7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.345165, 0.32114, 0.40827, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_r6syy")
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_twpev")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(0, -51, 50, 32, 33, 53, 13, 34, -14, 34, -31, 53, -51, 32)
+
+[node name="DebugLine" type="Line2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

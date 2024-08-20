@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbmgfq4pwo2kx"]
+
+[ext_resource type="Texture2D" uid="uid://0copf02657hh" path="res://assets/simple_space/PNG/Retina/station_C.png" id="1_5h2q7"]
+[ext_resource type="Script" path="res://scripts/core.gd" id="1_6btwh"]
+[ext_resource type="Texture2D" uid="uid://pr8l6ufgevo1" path="res://assets/simple_space/PNG/Retina/icon_plusLarge.png" id="1_jm6mu"]
+[ext_resource type="Shader" path="res://shaders/animated_dashed_outline.gdshader" id="2_efc3r"]
+[ext_resource type="Texture2D" uid="uid://cewdmqjvrc71e" path="res://icon.svg" id="3_o1s58"]
+[ext_resource type="Texture2D" uid="uid://c3adn88ltoynl" path="res://assets/simple_space/PNG/Retina/ship_A.png" id="4_305ft"]
+[ext_resource type="PackedScene" uid="uid://can0mkuh4q6h1" path="res://scenes/core_menu.tscn" id="7_4efr1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uscxn"]
+blend_mode = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grfxi"]
+shader = ExtResource("2_efc3r")
+shader_parameter/color = Vector4(1, 1, 1, 0.4)
+shader_parameter/diameter = 1.0
+shader_parameter/thickness = 0.02
+shader_parameter/frequency = 20.0
+shader_parameter/phase_speed = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4xobj"]
+radius = 250.0
+
+[node name="Core" type="Area2D" groups=["connectable"]]
+script = ExtResource("1_6btwh")
+
+[node name="GFX" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="GFX"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_jm6mu")
+
+[node name="Station" type="Sprite2D" parent="GFX"]
+material = SubResource("CanvasItemMaterial_uscxn")
+scale = Vector2(2, 2)
+texture = ExtResource("1_5h2q7")
+
+[node name="SidePiece" type="Sprite2D" parent="GFX/Station"]
+position = Vector2(62.5, 0)
+rotation = 1.5708
+texture = ExtResource("4_305ft")
+
+[node name="SidePiece2" type="Sprite2D" parent="GFX/Station"]
+position = Vector2(-62.5, 0)
+rotation = -1.5708
+texture = ExtResource("4_305ft")
+
+[node name="SidePiece3" type="Sprite2D" parent="GFX/Station"]
+position = Vector2(0, -62.5)
+texture = ExtResource("4_305ft")
+
+[node name="SidePiece4" type="Sprite2D" parent="GFX/Station"]
+position = Vector2(0, 62.5)
+rotation = -3.14159
+texture = ExtResource("4_305ft")
+
+[node name="DashedOutline" type="Sprite2D" parent="GFX"]
+material = SubResource("ShaderMaterial_grfxi")
+scale = Vector2(4, 4)
+texture = ExtResource("3_o1s58")
+
+[node name="CoreMenu" parent="." instance=ExtResource("7_4efr1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4xobj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

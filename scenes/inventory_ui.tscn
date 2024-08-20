@@ -1,0 +1,155 @@
+[gd_scene load_steps=12 format=3 uid="uid://dekqmkxed30g7"]
+
+[ext_resource type="Texture2D" uid="uid://dgs6x6cofj1vs" path="res://assets/cursor_pack/Outline/line_horizontal.svg" id="1_cj4lh"]
+[ext_resource type="Script" path="res://scripts/inventory_ui.gd" id="1_uk461"]
+[ext_resource type="Texture2D" uid="uid://irg4lbbve7j3" path="res://assets/cursor_pack/Outline/target_round_a.svg" id="2_38yip"]
+[ext_resource type="Texture2D" uid="uid://ct3q1hdc072mu" path="res://assets/keyboard_mouse_vector_icons/keyboard_1_outline.svg" id="3_8fvnb"]
+[ext_resource type="Texture2D" uid="uid://dinyrowpomlsr" path="res://assets/cursor_pack/Outline/door_enter.svg" id="3_kqpbb"]
+[ext_resource type="Texture2D" uid="uid://d00vbarw4isiw" path="res://assets/cursor_pack/Outline/navigation_nw.svg" id="4_u1y05"]
+[ext_resource type="Texture2D" uid="uid://bto2itet7pfkn" path="res://assets/keyboard_mouse_vector_icons/keyboard_2_outline.svg" id="5_klwvb"]
+[ext_resource type="Texture2D" uid="uid://2fb8ua0mjemq" path="res://assets/keyboard_mouse_vector_icons/keyboard_3_outline.svg" id="7_kimch"]
+[ext_resource type="Texture2D" uid="uid://ikrk6vn1boj5" path="res://assets/keyboard_mouse_vector_icons/keyboard_4_outline.svg" id="9_04kx5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjupm"]
+font_size = 19
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_ejbdq"]
+font_size = 72
+font_color = Color(0.876165, 0.440255, 0.41316, 1)
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 30.0
+offset_bottom = 30.0
+script = ExtResource("1_uk461")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 149.0
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 7
+
+[node name="Wires" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cj4lh")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Wires"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 8.0
+offset_right = 77.0
+offset_bottom = 38.0
+rotation = 0.0349066
+text = "2"
+label_settings = SubResource("LabelSettings_bjupm")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Wires"]
+layout_mode = 2
+offset_left = -40.0
+offset_top = -6.0
+offset_right = 24.0
+offset_bottom = 58.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_8fvnb")
+stretch_mode = 3
+
+[node name="Turrets" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_38yip")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Turrets"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 8.0
+offset_right = 77.0
+offset_bottom = 38.0
+rotation = 0.0349066
+text = "2"
+label_settings = SubResource("LabelSettings_bjupm")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Turrets"]
+layout_mode = 2
+offset_left = -40.0
+offset_top = -6.0
+offset_right = 24.0
+offset_bottom = 58.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_klwvb")
+stretch_mode = 3
+
+[node name="Routers" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_kqpbb")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Routers"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 8.0
+offset_right = 77.0
+offset_bottom = 38.0
+rotation = 0.0349066
+text = "2"
+label_settings = SubResource("LabelSettings_bjupm")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Routers"]
+layout_mode = 2
+offset_left = -40.0
+offset_top = -6.0
+offset_right = 24.0
+offset_bottom = 58.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_kimch")
+stretch_mode = 3
+
+[node name="PickupRaft" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_u1y05")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PickupRaft"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 8.0
+offset_right = 77.0
+offset_bottom = 38.0
+rotation = 0.0349066
+text = "2"
+label_settings = SubResource("LabelSettings_bjupm")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PickupRaft"]
+layout_mode = 2
+offset_left = -40.0
+offset_top = -6.0
+offset_right = 24.0
+offset_bottom = 58.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_04kx5")
+stretch_mode = 3
+
+[node name="DeathScreen" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 228.0
+offset_right = 1071.0
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "you're a dead triangle"
+label_settings = SubResource("LabelSettings_ejbdq")
+horizontal_alignment = 1
+vertical_alignment = 1

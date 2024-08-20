@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://q7es56xi74wh"]
+
+[ext_resource type="Texture2D" uid="uid://kbrjs7ka75sg" path="res://assets/Rune Pack/Grey/Tile (outline)/runeGrey_tileOutline_032.png" id="1_6it4d"]
+[ext_resource type="PackedScene" uid="uid://cx1oujf21akmh" path="res://scenes/animated_dashed_outline.tscn" id="1_52l81"]
+[ext_resource type="Script" path="res://scripts/energy_ruin.gd" id="1_n032h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c2jjt"]
+radius = 125.0
+
+[node name="EnergyRuin" type="Area2D" groups=["connectable"]]
+script = ExtResource("1_n032h")
+
+[node name="GFX" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Rune" type="Sprite2D" parent="GFX"]
+texture = ExtResource("1_6it4d")
+
+[node name="DashedOutline" parent="GFX" instance=ExtResource("1_52l81")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c2jjt")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

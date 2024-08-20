@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6p4dfj78dy8i"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pkw4f"]
+[ext_resource type="PackedScene" uid="uid://ce3oyi3jyhx3l" path="res://scenes/player.tscn" id="2_8ra6v"]
+[ext_resource type="PackedScene" uid="uid://dbmgfq4pwo2kx" path="res://scenes/core.tscn" id="3_6l12u"]
+[ext_resource type="PackedScene" uid="uid://dekqmkxed30g7" path="res://scenes/inventory_ui.tscn" id="4_5nffv"]
+[ext_resource type="PackedScene" uid="uid://q7es56xi74wh" path="res://scenes/energy_ruin.tscn" id="6_bsy5l"]
+[ext_resource type="PackedScene" uid="uid://dbske85nbmpiu" path="res://scenes/enemy_a.tscn" id="7_nv7ay"]
+[ext_resource type="PackedScene" uid="uid://hnokeiuqfgmk" path="res://scenes/enemy_spawn.tscn" id="7_reo4k"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_pkw4f")
+
+[node name="Player" parent="." instance=ExtResource("2_8ra6v")]
+position = Vector2(300, 200)
+
+[node name="Core" parent="." instance=ExtResource("3_6l12u")]
+position = Vector2(-250, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" parent="CanvasLayer" instance=ExtResource("4_5nffv")]
+mouse_filter = 2
+
+[node name="EnergyRuin" parent="." instance=ExtResource("6_bsy5l")]
+position = Vector2(1200, -400)
+
+[node name="EnergyRuin2" parent="." instance=ExtResource("6_bsy5l")]
+position = Vector2(-800, 600)
+
+[node name="EnemySpawn" parent="." instance=ExtResource("7_reo4k")]
+
+[node name="EnemyA" parent="." instance=ExtResource("7_nv7ay")]
+position = Vector2(-1213, 768)
+
+[node name="EnemyA2" parent="." instance=ExtResource("7_nv7ay")]
+position = Vector2(1774, -257)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7ffdorty6o35"]
+
+[ext_resource type="Texture2D" uid="uid://u6ewd5bdcekb" path="res://assets/white_circle.webp" id="1_ajob1"]
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_xvaxt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xyqn"]
+radius = 11.0
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_xvaxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7xyqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("1_ajob1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

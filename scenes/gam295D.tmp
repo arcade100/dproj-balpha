@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6p4dfj78dy8i"]
+
+[ext_resource type="PackedScene" uid="uid://ce3oyi3jyhx3l" path="res://scenes/player.tscn" id="2_8ra6v"]
+[ext_resource type="PackedScene" uid="uid://dbmgfq4pwo2kx" path="res://scenes/core.tscn" id="3_6l12u"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_at0vn"]
+[ext_resource type="PackedScene" uid="uid://dbske85nbmpiu" path="res://scenes/enemy_a.tscn" id="4_lu1ma"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_8ra6v")]
+script = ExtResource("3_at0vn")
+
+[node name="Core" parent="." instance=ExtResource("3_6l12u")]
+position = Vector2(-250, 10)
+
+[node name="EnemyA" parent="." instance=ExtResource("4_lu1ma")]
+position = Vector2(300, 0)
+strafing_radius = 200.0
+attack_radius = 500.0
+chase_speed = 16.0
+
+[node name="EnemyA2" parent="." instance=ExtResource("4_lu1ma")]
+strafing_radius = 200.0
+
+[node name="EnemyA3" parent="." instance=ExtResource("4_lu1ma")]
+position = Vector2(200, 0)
+attack_radius = 700.0
+chase_speed = 12.0

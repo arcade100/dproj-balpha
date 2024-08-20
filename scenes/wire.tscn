@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmwso4j78topi"]
+
+[ext_resource type="Script" path="res://scripts/wire.gd" id="1_vcvgj"]
+
+[sub_resource type="Gradient" id="Gradient_l1d1k"]
+colors = PackedColorArray(0.787865, 0.730648, 0.815208, 1, 0.716992, 0.712338, 0.858457, 1)
+
+[node name="Wire" type="Line2D"]
+width = 8.0
+default_color = Color(0.839975, 0.842883, 0.897693, 1)
+gradient = SubResource("Gradient_l1d1k")
+script = ExtResource("1_vcvgj")
